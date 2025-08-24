@@ -41,10 +41,10 @@ public class Menu {
 
             }
             else if (opcao == 5){
-
+                removerPessoa();
             }
             else if (opcao == 6){
-
+                sair();
             }
         }
 
@@ -95,9 +95,26 @@ public class Menu {
 
     }
     static public void removerPessoa(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Busca para remover: ");
+        String busca = input.nextLine();
 
+        boolean removido = false;
+
+        for (int i = 0; i < listaPessoas.size(); i++) {
+            if (listaPessoas.get(i).nome.equalsIgnoreCase(busca)) {
+                listaPessoas.remove(i); // tiramos a pessoa da lista
+                System.out.println("Pessoa removida com sucesso!");
+                removido = true;
+                break;
+            }
+        }
+        if (removido == false){
+            System.out.println("pessoa nao encontrada");
+        }
     }
     static public void sair(){
-
+        System.out.println("Saindo do programa...");
+        System.exit(0);
     }
 }
