@@ -1,14 +1,19 @@
 package Atividade02;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
+    public static ArrayList<Pessoa> listaPessoas = new ArrayList<Pessoa>();
+
     public static void main(String[] args) {
-      menu();
+        menu();
     }
 
     static public void menu(){
         Scanner input = new Scanner(System.in);
+
+
 
         int opcao = 0;
         while (opcao != 6 ){
@@ -27,10 +32,10 @@ public class Menu {
                 cadastrarPessoa();
             }
             else if (opcao == 2){
-                listaPessoas();
+                listarPessoas();
             }
             else if (opcao == 3){
-
+                buscaNome();
             }
             else if (opcao == 4){
 
@@ -47,26 +52,44 @@ public class Menu {
 
     static public void cadastrarPessoa(){
 
-        Pessoa pessoa = new Pessoa();
+        Pessoa usuario = new Pessoa();
+
 
         Scanner input = new Scanner(System.in);
         System.out.println("Digite o seu nome:");
-        pessoa.nome = input.nextLine();
+        usuario.nome = input.nextLine();
         System.out.println("Digite a sua idade:");
-        pessoa.idade = input.nextInt();
+        usuario.idade = input.nextInt();
         System.out.println("Digite o seu telefone:");
         input.nextLine();
-        pessoa.telefone = input.nextLine();
+        usuario.telefone = input.nextLine();
         System.out.println("Digite o seu email:");
-        pessoa.email = input.nextLine();
+        usuario.email = input.nextLine();
+
+        listaPessoas.add(usuario);
+
     }
 
-    static public void listaPessoas(){
-        Pessoa pessoa = new Pessoa();
-        System.out.println(pessoa.nome);
+    static public void listarPessoas(){
+        listaPessoas.forEach(usuario -> System.out.println(usuario.nome));
     }
     static public void buscaNome(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Busca por nome: ");
+        String busca = input.nextLine();
 
+        boolean encontrado = false;
+
+        for (Pessoa usuario : listaPessoas){
+            if (usuario.nome.equalsIgnoreCase(busca)){
+                System.out.println("Pessoa encontrada:");
+                System.out.println(usuario);
+                encontrado = true;
+            }
+        }
+        if (encontrado == false){
+            System.out.println("pessoa nao encontrada");
+        }
     }
     static public void atualizarDados(){
 
