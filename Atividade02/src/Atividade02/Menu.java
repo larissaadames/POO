@@ -53,15 +53,28 @@ public class Menu {
         System.out.println("Digite o seu nome:");
         pessoa.nome = input.nextLine();
         System.out.println("Digite a sua idade:");
-        int idade = input.nextInt();
+        pessoa.idade = input.nextInt();
         System.out.println("Digite o seu telefone:");
         input.nextLine();
-        String telefone = input.nextLine();
+        pessoa.telefone = input.nextLine();
         System.out.println("Digite o seu email:");
-        String email = input.nextLine();
+        pessoa.email = input.nextLine();
     }
 
     static public void listaPessoas(){
-        System.out.println();
+        Pessoa pessoa = new Pessoa();
+        System.out.println(pessoa.nome);
+    }
+    static public void buscaNome(){
+
+    }
+    static public void atualizarDados(){
+
+    }
+    static public void removerPessoa(){
+
+    }
+    static public void sair(){
+
     }
 }
