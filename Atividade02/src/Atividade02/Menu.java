@@ -42,6 +42,9 @@ public class Menu {
                 case 5:
                     removerPessoa();
                 break;
+                case 6:
+                    sair();
+                break;
             }
 
         }
