@@ -28,24 +28,22 @@ public class Menu {
             System.out.println("Escolha uma opção: ");
             opcao = input.nextInt();
 
-            if (opcao == 1){
-                cadastrarPessoa();
-            }
-            else if (opcao == 2){
-                listarPessoas();
-            }
-            else if (opcao == 3){
-                buscaNome();
-            }
-            else if (opcao == 4){
 
+            switch (opcao){
+                case 1:
+                    cadastrarPessoa();
+                break;
+                case 2:
+                    listarPessoas();
+                break;
+                case 3:
+                    buscaNome();
+                break;
+                case 5:
+                    removerPessoa();
+                break;
             }
-            else if (opcao == 5){
-                removerPessoa();
-            }
-            else if (opcao == 6){
-                sair();
-            }
+
         }
 
     }
