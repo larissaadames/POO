@@ -39,6 +39,9 @@ public class Menu {
                 case 3:
                     buscaNome();
                 break;
+                case 4:
+                    atualizarDados();
+                break;
                 case 5:
                     removerPessoa();
                 break;
@@ -93,6 +96,34 @@ public class Menu {
         }
     }
     static public void atualizarDados(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Busca por nome: ");
+        String busca = input.nextLine();
+
+        boolean atualizado = false;
+
+        for (Pessoa usuario : listaPessoas){
+            if (usuario.nome.equalsIgnoreCase(busca)){
+                System.out.println("Pessoa encontrada:");
+                System.out.println("Atualize os dados: ");
+
+                System.out.println("Digite o seu nome:");
+                usuario.nome = input.nextLine();
+                System.out.println("Digite a sua idade:");
+                usuario.idade = input.nextInt();
+                System.out.println("Digite o seu telefone:");
+                input.nextLine();
+                usuario.telefone = input.nextLine();
+                System.out.println("Digite o seu email:");
+                usuario.email = input.nextLine();
+
+                listaPessoas.add(usuario);
+                atualizado = true;
+            }
+        }
+        if (!atualizado){
+            System.out.println("pessoa nao encontrada");
+        }
 
     }
     static public void removerPessoa(){
