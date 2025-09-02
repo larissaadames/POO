@@ -18,8 +18,6 @@ public class KitSalvaVidasJava {
     public void imprimeNome() {
         System.out.println("Marina");
     }
-
-
     public static void main(String[] args) {
         // VARIÁVEIS:
         int inteiro = 1;

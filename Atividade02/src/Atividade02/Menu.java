@@ -13,8 +13,6 @@ public class Menu {
     static public void menu(){
         Scanner input = new Scanner(System.in);
 
-
-
         int opcao = 0;
         while (opcao != 6 ){
             System.out.println("""
@@ -48,16 +46,18 @@ public class Menu {
                     removerPessoa();
                 break;
                 case 6:
-                    sair();
+                    System.out.println("Saindo do programa...");
+                    System.exit(0);
                 break;
+                default:
+                    System.out.println("Opção inválida");
             }
 
         }
 
     }
 
-
-    static public void cadastrarPessoa(){
+    static public Pessoa perguntas(){
 
         Pessoa usuario = new Pessoa();
 
@@ -72,13 +72,22 @@ public class Menu {
         usuario.telefone = input.nextLine();
         System.out.println("Digite o seu email:");
         usuario.email = input.nextLine();
+        return usuario;
+    }
 
+    static public void cadastrarPessoa(){
+        Pessoa usuario = perguntas();
         listaPessoas.add(usuario);
 
     }
 
     static public void listarPessoas(){
+        if(listaPessoas.isEmpty()){
+            System.out.println("Lista vazia");
+        }
+        else{
         listaPessoas.forEach(usuario -> System.out.println(usuario.nome));
+        }
     }
     static public void buscaNome(){
         Scanner input = new Scanner(System.in);
@@ -107,18 +116,8 @@ public class Menu {
 
         for (Pessoa usuario : listaPessoas){
             if (usuario.nome.equalsIgnoreCase(busca)){
-                System.out.println("Atualize os dados: ");
 
-                System.out.println("Digite o seu nome:");
-                usuario.nome = input.nextLine();
-                System.out.println("Digite a sua idade:");
-                usuario.idade = input.nextInt();
-                System.out.println("Digite o seu telefone:");
-                input.nextLine();
-                usuario.telefone = input.nextLine();
-                System.out.println("Digite o seu email:");
-                usuario.email = input.nextLine();
-
+                Pessoa atualizar = perguntas();
 
                 atualizado = true;
             }
@@ -137,7 +136,7 @@ public class Menu {
 
         for (int i = 0; i < listaPessoas.size(); i++) {
             if (listaPessoas.get(i).nome.equalsIgnoreCase(busca)) {
-                listaPessoas.remove(i); // tiramos a pessoa da lista
+                listaPessoas.remove(i);
                 System.out.println("Pessoa removida com sucesso!");
                 removido = true;
                 break;
@@ -146,9 +145,5 @@ public class Menu {
         if (!removido){
             System.out.println("pessoa nao encontrada");
         }
-    }
-    static public void sair(){
-        System.out.println("Saindo do programa...");
-        System.exit(0);
     }
 }
