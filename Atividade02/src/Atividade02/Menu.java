@@ -57,11 +57,7 @@ public class Menu {
 
     }
 
-    static public Pessoa perguntas(){
-
-        Pessoa usuario = new Pessoa();
-
-
+    static public Pessoa perguntas(Pessoa usuario){
         Scanner input = new Scanner(System.in);
         System.out.println("Digite o seu nome:");
         usuario.nome = input.nextLine();
@@ -76,7 +72,8 @@ public class Menu {
     }
 
     static public void cadastrarPessoa(){
-        Pessoa usuario = perguntas();
+        Pessoa p = new Pessoa();
+        Pessoa usuario = perguntas(p);
         listaPessoas.add(usuario);
 
     }
@@ -117,7 +114,8 @@ public class Menu {
         for (Pessoa usuario : listaPessoas){
             if (usuario.nome.equalsIgnoreCase(busca)){
 
-                Pessoa atualizar = perguntas();
+                Pessoa atualizar = perguntas(usuario);
+
 
                 atualizado = true;
             }
