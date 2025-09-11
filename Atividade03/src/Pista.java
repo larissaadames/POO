@@ -1,7 +1,9 @@
+package Atividade03.src;
+
 public class Pista {
-    String nomePista;
-    String km;
-    int qntdeCurva;
-    int zonaDRS;
-    String local;
+    private String nomePista;
+    private String km;
+    private int qntdeCurva;
+    private int zonaDRS;
+    private String local;
 }

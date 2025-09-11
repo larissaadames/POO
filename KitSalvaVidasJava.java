@@ -41,7 +41,7 @@ public class KitSalvaVidasJava {
         System.out.println("O nome digitado foi: " + nome);
         // Número inteiro (int):
         System.out.println("Digite um número inteiro:");
-        int numeroInteiro = scanner.nextInt();
+         int numeroInteiro = scanner.nextInt();
         System.out.println("O número inteiro digitado foi: " + numeroInteiro);
         // Número decimal (float):
         System.out.println("Digite um número decimal:");
