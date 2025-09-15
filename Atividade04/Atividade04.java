@@ -8,15 +8,20 @@ public class Atividade04 {
     }
     public static void menu(){
         Scanner input = new Scanner(System.in);
+
         int opcao = 0;
-        while (opcao != 6){
-            System.out.println(" 1. Cadastrar" +
-                    "2. Sacar" +
-                    "3. Depositar" +
-                    "4. Extrato" +
-                    "5. Alterar Informações Cadastrais" +
-                    "6. Sair \n" );
-            System.out.println("Digite a opção:");
+        while (opcao != 6 ){
+            System.out.println("""
+                    
+                      1. Cadastrar 
+                      2. Sacar
+                      3. Depositar
+                      4. Extrato
+                      5. Alterar informacoes cadastrais 
+                      6. Sair
+                    """);
+
+            System.out.println("Escolha uma opção: ");
             opcao = input.nextInt();
 
             switch (opcao){
@@ -47,8 +52,17 @@ public class Atividade04 {
     public static void cadastrar(){
         Cliente c = new Cliente();
         Scanner input = new Scanner(System.in);
+
+        System.out.println("Digite seu nome: ");
+        c.setNome(input.next());
         System.out.println("Digite a sua idade: ");
-        c.setIdade() = input.nextInt();
+        c.setIdade(input.nextInt());
+        System.out.println("Digite seu cpf: ");
+        c.setCPF(input.next());
+        System.out.println("Digite seu telefone: ");
+        c.setTelefone(input.next());
+        System.out.println("Digite seu email: ");
+        c.setEmail(input.next());
 
     }
     public static void sacar() {
